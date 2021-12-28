@@ -1,34 +1,15 @@
-import { useState, useEffect } from "react";
 import { SimpleGrid, Flex, Text, Button } from "@chakra-ui/react";
+import useApp from "./useApp";
+import { SUCCESS_LABEL_VALUE } from "./constants";
 
 const App = () => {
-  const [users, setUsers] = useState([]);
-  const [label, setLabel] = useState(INITIAL_LABEL_VALUE);
-  const [clickCounter, setClickCounter] = useState(0);
-
-  useEffect(() => {
-    fetchUsers();
-  }, []);
-
-  const fetchUsers = async () => {
-    const data = await fetch("https://jsonplaceholder.typicode.com/users");
-    const users = await data.json();
-    setUsers(users);
-  };
-
-  const handleBoxClick = (e) => {
-    setLabel(e.nativeEvent.target.textContent);
-    setClickCounter((counter) => counter + 1);
-  };
-
-  const handleClearClick = () => {
-    setLabel(INITIAL_LABEL_VALUE);
-    scrollToTop();
-  };
-
-  const scrollToTop = () => {
-    window.scrollTo(0, 0);
-  };
+  const {
+    users,
+    label,
+    handleBoxClick,
+    handleClearClick,
+    shouldDisplayAllClickedLabel,
+  } = useApp();
 
   return (
     <Flex flexDirection="column" alignItems="center" width="100%">
@@ -75,7 +56,7 @@ const App = () => {
       >
         Clear
       </Button>
-      {clickCounter > 0 && clickCounter % users?.length === 0 && (
+      {shouldDisplayAllClickedLabel && (
         <Text
           fontFamily="helvetica"
           fontSize="2rem"
@@ -89,6 +70,3 @@ const App = () => {
 };
 
 export default App;
-
-const INITIAL_LABEL_VALUE = "Click a box";
-const SUCCESS_LABEL_VALUE = "All boxes clicked";
