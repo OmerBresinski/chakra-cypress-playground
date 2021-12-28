@@ -12,6 +12,7 @@ const UserGrid = ({ users, onUserClick }) => {
       {users.map((user) => (
         <User
           key={user.id}
+          id={user.id}
           username={user.username}
           onUserClick={onUserClick}
         />

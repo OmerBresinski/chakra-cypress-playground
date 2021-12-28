@@ -45,10 +45,19 @@ describe("App Page", () => {
     cy.window().should("have.property", "scrollY", 0);
   });
 
-  it("Displays a message when all of the boxes are clicked", () => {
+  it("Displays a message when all of the different boxes are clicked", () => {
     cy.get("[data-testid=flex-item]").each(($el) => {
       cy.wrap($el).click();
     });
     cy.get("[data-testid=all-clicked-label]").should("be.visible");
+  });
+
+  it("Does not display a message when the same box is clicked repeatedly", () => {
+    cy.fixture("users.json").then((users) => {
+      users.forEach((_user) => {
+        cy.get("[data-testid=flex-item]").first().click();
+      });
+    });
+    cy.get("[data-testid=all-clicked-label]").should("not.exist");
   });
 });

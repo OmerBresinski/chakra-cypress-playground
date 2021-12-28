@@ -1,8 +1,8 @@
 import { Text, Flex } from "@chakra-ui/react";
 
-const User = ({ username, onUserClick }) => {
+const User = ({ id, username, onUserClick }) => {
   const handleClick = () => {
-    onUserClick && onUserClick(username);
+    onUserClick && onUserClick({ username, id });
   };
 
   return (

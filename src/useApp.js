@@ -4,9 +4,9 @@ import { INITIAL_LABEL_VALUE } from "./constants";
 const useApp = () => {
   const [users, setUsers] = useState([]);
   const [label, setLabel] = useState(INITIAL_LABEL_VALUE);
-  const [clickCounter, setClickCounter] = useState(0);
+  const [clickedUsers, setClickedUsers] = useState({ amount: 0 });
   const shouldDisplayAllClickedLabel =
-    clickCounter > 0 && clickCounter % users?.length === 0;
+    clickedUsers.amount > 0 && clickedUsers.amount % users?.length === 0;
 
   useEffect(() => {
     fetchUsers();
@@ -18,9 +18,20 @@ const useApp = () => {
     setUsers(users);
   };
 
-  const handleUserClick = (username) => {
+  const handleUserClick = ({ username, id }) => {
     setLabel(username);
-    setClickCounter((counter) => counter + 1);
+    increaseClickedUsersAmount(id);
+  };
+
+  const increaseClickedUsersAmount = (id) => {
+    const shouldIncreaseAmount = !clickedUsers[id];
+    setClickedUsers((clickedUsers) => {
+      return {
+        [id]: id,
+        ...clickedUsers,
+        ...(shouldIncreaseAmount && { amount: clickedUsers.amount + 1 }),
+      };
+    });
   };
 
   const handleClearClick = () => {
