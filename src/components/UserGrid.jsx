@@ -1,4 +1,4 @@
-import User from "./User";
+import UserBox from "./UserBox";
 import { SimpleGrid } from "@chakra-ui/react";
 
 const UserGrid = ({ users, onUserClick }) => {
@@ -10,7 +10,7 @@ const UserGrid = ({ users, onUserClick }) => {
       width="100%"
     >
       {users.map((user) => (
-        <User
+        <UserBox
           key={user.id}
           id={user.id}
           username={user.username}

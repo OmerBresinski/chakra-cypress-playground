@@ -1,6 +1,6 @@
 import { Text, Flex } from "@chakra-ui/react";
 
-const User = ({ id, username, onUserClick }) => {
+const UserBox = ({ id, username, onUserClick }) => {
   const handleClick = () => {
     onUserClick && onUserClick({ username, id });
   };
@@ -23,4 +23,4 @@ const User = ({ id, username, onUserClick }) => {
   );
 };
 
-export default User;
+export default UserBox;
