@@ -5,7 +5,7 @@ const UserGrid = ({ users, onUserClick }) => {
   return (
     <SimpleGrid
       minChildWidth="150px"
-      padding="2rem 5rem"
+      paddingBlock="2rem"
       spacing="20px"
       width="100%"
     >
