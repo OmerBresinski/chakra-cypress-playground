@@ -1,5 +1,5 @@
-import { SimpleGrid, Flex, Text, Button } from "@chakra-ui/react";
 import useApp from "./useApp";
+import { SimpleGrid, Flex, Text, Button } from "@chakra-ui/react";
 import { SUCCESS_LABEL_VALUE } from "./constants";
 
 const App = () => {
