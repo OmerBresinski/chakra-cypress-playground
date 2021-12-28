@@ -1,4 +1,5 @@
 import useApp from "./useApp";
+import User from "./User";
 import { SimpleGrid, Flex, Text, Button } from "@chakra-ui/react";
 import { SUCCESS_LABEL_VALUE } from "./constants";
 
@@ -6,7 +7,7 @@ const App = () => {
   const {
     users,
     label,
-    handleBoxClick,
+    handleUserClick,
     handleClearClick,
     shouldDisplayAllClickedLabel,
   } = useApp();
@@ -25,21 +26,11 @@ const App = () => {
         width="100%"
       >
         {users.map((user) => (
-          <Flex
+          <User
             key={user.id}
-            onClick={handleBoxClick}
-            data-testid="flex-item"
-            align="center"
-            justify="center"
-            bg="rgb(245, 245, 245)"
-            borderRadius="5px"
-            border="solid black"
-            height="100px"
-            cursor="pointer"
-            _hover={{ background: "rgb(233, 233, 233)" }}
-          >
-            <Text fontFamily="helvetica">{user.username}</Text>
-          </Flex>
+            username={user.username}
+            onUserClick={handleUserClick}
+          />
         ))}
       </SimpleGrid>
       <Button

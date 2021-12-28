@@ -18,8 +18,8 @@ const useApp = () => {
     setUsers(users);
   };
 
-  const handleBoxClick = (e) => {
-    setLabel(e.nativeEvent.target.textContent);
+  const handleUserClick = (username) => {
+    setLabel(username);
     setClickCounter((counter) => counter + 1);
   };
 
@@ -35,7 +35,7 @@ const useApp = () => {
   return {
     users,
     label,
-    handleBoxClick,
+    handleUserClick,
     handleClearClick,
     shouldDisplayAllClickedLabel,
   };
