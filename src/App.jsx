@@ -1,7 +1,7 @@
 import useApp from "./useApp";
-import AppHeader from "./AppHeader";
-import UserGrid from "./UserGrid";
-import AppFooter from "./AppFooter";
+import AppHeader from "./components/AppHeader";
+import UserGrid from "./components/UserGrid";
+import AppFooter from "./components/AppFooter";
 import { Flex } from "@chakra-ui/react";
 
 const App = () => {

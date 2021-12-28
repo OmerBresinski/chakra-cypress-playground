@@ -1,5 +1,5 @@
 import { Button, Text } from "@chakra-ui/react";
-import { SUCCESS_LABEL_VALUE } from "./constants";
+import { SUCCESS_LABEL_VALUE } from "../constants";
 
 const AppFooter = ({ onClearClick, shouldDisplayAllClickedLabel }) => {
   return (
