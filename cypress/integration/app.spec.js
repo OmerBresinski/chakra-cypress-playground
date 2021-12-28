@@ -19,6 +19,14 @@ describe("App Page", () => {
     });
   });
 
+  it("Displays the usernames inside all of the flex items", () => {
+    cy.fixture("users.json").then((users) => {
+      cy.get("[data-testid=flex-item]").each((el, index) => {
+        cy.wrap(el).contains(users[index].username);
+      });
+    });
+  });
+
   it("Changes the label text after clicking each box", () => {
     cy.get("[data-testid=flex-item]").each(($el) => {
       cy.wrap($el).click();
