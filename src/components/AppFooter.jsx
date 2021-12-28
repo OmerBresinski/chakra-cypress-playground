@@ -15,6 +15,7 @@ const AppFooter = ({ onClearClick, shouldDisplayAllClickedLabel }) => {
         borderRadius="5px"
         border="solid black"
         bg="rgb(245, 245, 245)"
+        _hover={{ background: "rgb(233, 233, 233)" }}
       >
         Clear
       </Button>
